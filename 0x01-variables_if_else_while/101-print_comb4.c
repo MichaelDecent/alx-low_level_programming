@@ -7,6 +7,7 @@
  * return: (0)
  */
 int main(void)
+
 {
 	int a, b, c;
 
@@ -27,6 +28,8 @@ int main(void)
 
 		}
 	}
+
 	putchar (10);
+
 	return (0);
 }
