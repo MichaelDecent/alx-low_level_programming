@@ -4,10 +4,9 @@
  *
  * Return: (0) if successful
  */
-void print_alphabet(void);
-
+void print_alphabet(void)
 {
-	char alphabet = 'a'
+	char alphabet = 'a';
 
 	while (alphabet <= 'z')
 	{
@@ -15,5 +14,5 @@ void print_alphabet(void);
 		alphabet++;
 	}
 
-	putchar ('\n');
+	_putchar ('\n');
 }
