@@ -13,11 +13,11 @@ int main(void)
 
 	i = 0;
 
-	while (i < 10)
+	/*while (i < 10)
 	{
 		putchar(i);
-	}      			/*cause of inifite loop in this program is 
-				  no increament of i variable i.e i++ */
+	}*/
+
 	printf("Infinite loop avoided! \\o/\n");
 
 	return (0);
