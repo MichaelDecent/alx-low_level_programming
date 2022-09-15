@@ -15,7 +15,6 @@ int main(void)
 	{
 		summation = fibonnaci1 + fibonnaci2;
 		printf("%lu", summation);
-
 	
 		fibonnaci1 = fibonnaci2;
 		fibonnaci2 = summation;
