@@ -23,7 +23,7 @@ void print_triangle(int size)
 		if (i == size - 1)
 			continue;
 		_putchar('\n');
-	
+
 	}
 	_putchar('\n');
 }
