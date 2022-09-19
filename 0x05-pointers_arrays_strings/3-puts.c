@@ -3,7 +3,7 @@
  * _puts - a function thta prints a stings
  * @str: the sting yo printed
  */
-void _puts(char *str);
+void _puts(char *str)
 {
 	int i;
 
