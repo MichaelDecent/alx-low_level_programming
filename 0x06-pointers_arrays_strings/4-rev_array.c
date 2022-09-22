@@ -30,7 +30,7 @@ void reverse_array(int *a, int n)
 		start_c++;
 		end_c--;
 	}
-
+}
 
 
 
