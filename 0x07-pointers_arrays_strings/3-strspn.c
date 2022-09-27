@@ -11,19 +11,35 @@ unsigned int _strspn(char *s, char *accept)
 {
 	int i, j;
 	int count = 0;
+	char *str1, *str2;
 
-	for (i = 0; s[i] != '\0'; i++)
+	str1 = s;
+	str2 = accept;
+
+	i = 0;
+	while (str1[i] != '\0')
 	{
-		if (s[i] != 32)
+		j = 0;
+		while (str2[j] != '\0')
 		{
-			for (j = 0; accept[j] != '\0'; j++)
+			if (str2[j] == str1[i])
 			{
-				if (s[i] == accept[j])
-					count++;
+				count++;
+				break;
 			}
+
+			j++;
 		}
-		else
-			return (count);
+
+		if (s[i] != accept[j])
+
+		{
+			break;
+		}
+
+		i++;
+
 	}
+
 	return (count);
 }
