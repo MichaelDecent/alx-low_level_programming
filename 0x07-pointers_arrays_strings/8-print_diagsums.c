@@ -29,3 +29,4 @@ void print_diagsums(int *a, int size)
 	
 		i++; /*add +1*/
 	}
+}
