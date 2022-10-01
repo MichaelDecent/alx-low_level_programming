@@ -16,7 +16,7 @@ int main (int argc, char* argv[])
 	k = 3;
 	if (argc != k)
 	{
-		printf("Error\n")
+		printf("Error\n");
 		return (1);
 	}
 	printf("%d\n", atoi(argv[i]) * atoi(argv[j]));
