@@ -1,5 +1,11 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef dog_h
+#define dog_h
+/**
+ * struct dog - Struct type
+ * @name: name
+ * @age: age
+ * @owner: owner
+ */
 
 struct dog
 {
