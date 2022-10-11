@@ -1,5 +1,4 @@
 #include "dog.h"
-#include <stdio.h>
 /**
  * new_dog - A function pointer that creates a new dog
  * @name: name pointer
