@@ -13,9 +13,14 @@ struct dog
 	float age;
 	char *owner;
 };
+
 /**
  * dog_t - new type of struct dog
+ * @name: name
+ * @age: age
+ * @owner: owner
  */
+
 typedef struct dog
 {
 	char *name;
