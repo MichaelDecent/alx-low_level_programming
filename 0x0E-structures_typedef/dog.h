@@ -6,7 +6,6 @@
  * @age: age
  * @owner: owner
  */
-
 struct dog
 {
 	char *name;
@@ -15,18 +14,18 @@ struct dog
 };
 
 /**
- * dog_t - new type of struct dog
+ * struct dog_t - new type of struct dog
  * @name: name
  * @age: age
  * @owner: owner
  */
-
 typedef struct dog_t
 {
 	char *name;
 	float age;
 	char *owner;
-}dog_t;
+} dog_t;
+
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 #endif
