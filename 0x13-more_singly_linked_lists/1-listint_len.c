@@ -3,7 +3,7 @@
  * listint_len - A function that prints all elements
  * of the structure listint_t
  * @h: A pointer to the headnode
- * 
+ *
  * Return: Number of node
  */
 size_t listint_len(const listint_t *h)
