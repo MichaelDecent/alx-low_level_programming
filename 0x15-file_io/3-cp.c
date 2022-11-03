@@ -1,4 +1,27 @@
 #include "main.h"
+
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(int ac, char **av)
+{
+
+        if (ac != 3)
+        {
+                dprintf(2, "usage: cp %s %s", av[1], av[2]);;
+                exit(97);
+        }
+
+        copy_file(av[1], av[2]);
+
+
+        return (0);
+
+}
+
 /**
  * copy_file - a program that copies the
  * content of the file to another file
