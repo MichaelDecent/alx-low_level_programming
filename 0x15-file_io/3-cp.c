@@ -56,7 +56,7 @@ ssize_t copy_file(const char *filename1, const char *filename2)
 	}
 	wr = write(fd2, buf, rd);
 	close(fd1);
-	close (fd2);
+	close(fd2);
 
 	return (wr);
 
