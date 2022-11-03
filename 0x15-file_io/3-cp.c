@@ -43,21 +43,21 @@ ssize_t copy_file(const char *filename1, const char *filename2)
 	fd1 = open(filename1, O_RDONLY);
 	if (fd1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename1);
 		exit(98);
 	}
 	rd = read(fd1, buf, 1204);
 
-	fd2 = open(filename2, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0665);
+	fd2 = open(filename2, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	if (fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE");
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename2);
 		exit(99);
 	}
 	wr = write(fd2, buf, rd);
 	close(fd1);
 	close(fd2);
+	free(buf);
 
 	return (wr);
-
 }
