@@ -3,23 +3,22 @@
 
 /**
  * main - check the code
+ * @ac: count of argument
+ * @av: an array of string containing the
+ * arguments passed to the program
  *
  * Return: Always 0.
  */
 int main(int ac, char **av)
 {
+	if (ac != 3)
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	copy_file(av[1], av[2]);
 
-        if (ac != 3)
-        {
-                dprintf(2, "usage: cp %s %s", av[1], av[2]);;
-                exit(97);
-        }
-
-        copy_file(av[1], av[2]);
-
-
-        return (0);
-
+	return (0);
 }
 
 /**
