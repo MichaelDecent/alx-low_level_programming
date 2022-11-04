@@ -46,14 +46,11 @@ ssize_t copy_file(const char *filename1, const char *filename2)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename1);
 		exit(98);
 	}
-
 	while (*buf)
 	{
 		len++;
 	}
-
 	rd = read(fd1, buf, len);
-
 	fd2 = open(filename2, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	if (fd2 == -1)
 	{
@@ -63,18 +60,15 @@ ssize_t copy_file(const char *filename1, const char *filename2)
 	wr = write(fd2, buf, rd);
 
 	free(buf);
-
 	if (close(fd1) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(100);
 	}
-
 	if (close(fd2) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
-
 	return (wr);
 }
