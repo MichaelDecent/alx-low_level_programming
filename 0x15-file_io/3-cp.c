@@ -34,7 +34,7 @@ ssize_t copy_file(const char *filename1, const char *filename2)
 {
 	int fd1, fd2, rd, wr;
 
-	int *buf, len = 0;
+	int *buf;
 
 	buf = malloc(1204);
 	if (buf == NULL)
@@ -46,11 +46,9 @@ ssize_t copy_file(const char *filename1, const char *filename2)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename1);
 		exit(98);
 	}
-	while (*buf)
-	{
-		len++;
-	}
-	rd = read(fd1, buf, len);
+	while (fd1 != EOF)
+		rd = read(fd1, buf, 1204);
+
 	fd2 = open(filename2, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	if (fd2 == -1)
 	{
