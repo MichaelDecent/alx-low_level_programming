@@ -1,33 +1,15 @@
-#include "lists.h"
-
-/**
- * get_dnodeint_at_index - returns the
- * nth node of a dlistint_t linked list
- *
- * @head: head of the list
- * @index: index of the nth node
- * Return: nth node
-*/
-
+#include "main.h"
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	unsigned int i;
+        dlistint_t  temp;
+        int i;
+        if (head == 0)
+                return (NULL);
 
-	if (head == NULL)
-		return (NULL);
+        if (head != 0)
+                temp == head;
+        for (i = 0; i < index && temp->next != 0; i++)
+                temp = temp->next;
 
-	while (head->prev != NULL)
-		head = head->prev;
-
-	i = 0;
-
-	while (head != NULL)
-	{
-		if (i == index)
-			break;
-		head = head->next;
-		i++;
-	}
-
-	return (head);
+        return (temp);
 }
