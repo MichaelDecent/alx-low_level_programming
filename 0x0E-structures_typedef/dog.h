@@ -10,7 +10,10 @@
  * @owner: owner of the dog
  *
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> a0c526d3f0c3e46d3ad506e9d0acd2ae291e7d65
 typedef struct dog
 {
 	char *name;
