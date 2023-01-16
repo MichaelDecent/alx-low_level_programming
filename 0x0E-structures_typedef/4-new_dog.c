@@ -32,9 +32,10 @@ char *_strcopy(char *des, char *src)
 	int i;
 
 	for (i = 0; i < _strlen(src); i++)
-	{
 		des[i] = src[i];
-	}
+
+	des[i] = '\0';
+
 	return (des);
 }
 
