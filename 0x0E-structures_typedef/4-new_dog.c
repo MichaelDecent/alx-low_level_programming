@@ -1,5 +1,9 @@
 #include "dog.h"
 
+int _strlen(char *str);
+char *_strcopy(char *des, char *src);
+dog_t *new_dog(char *name, float age, char *owner);
+
 /**
  * _strlen - A function that returns the length of string
  * @str: string
