@@ -5,6 +5,7 @@
  * @array: an array of integer
  * @size: size of an integer
  * @cmp: a function pointer
+ * Return: return the indext of the integer
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
@@ -20,6 +21,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 			if ((cmp(array[i])) != 0)
 				return (i);
 		}
+	
 	}
-	return (0);
+	return (-1);
 }
