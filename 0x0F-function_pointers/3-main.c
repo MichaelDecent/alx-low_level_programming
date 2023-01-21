@@ -25,7 +25,7 @@ int main(int ac, char **av)
 
 	if (func == NULL)
 	{
-		printf("Error99\n");
+		printf("Error\n");
 		exit(99);
 	}
 	if (((*av[2] == '/') && (num2 == 0)) || ((*av[2] == '%') && (num2 == 0)))
