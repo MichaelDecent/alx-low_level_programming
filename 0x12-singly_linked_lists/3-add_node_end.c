@@ -14,9 +14,6 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *temp;
 	list_t *temp2;
 
-	if (str == NULL)
-		return (NULL);
-
 	lent = 0;
 	while (str[lent])
 		lent++;
