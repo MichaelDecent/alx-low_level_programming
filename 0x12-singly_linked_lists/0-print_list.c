@@ -10,7 +10,9 @@ size_t print_list(const list_t *h)
 	const list_t *temp;
 	size_t no_node;
 
-	if (h != NULL)
+	if (h == NULL)
+		return (0);
+	else
 	{
 		temp = h;
 		no_node = 0;
