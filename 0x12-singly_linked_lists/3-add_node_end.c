@@ -8,7 +8,7 @@
  * Return: address to new element;
  */
 list_t *add_node_end(list_t **head, const char *str)
-{	
+{
 	unsigned int lent;
 	list_t *new_node;
 	list_t *temp;
@@ -36,7 +36,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	else
 	{
 		temp = temp2 = *head;
-		while(temp->next != NULL)
+		while (temp->next != NULL)
 		{
 			temp = temp2->next;
 			temp2 = temp;
