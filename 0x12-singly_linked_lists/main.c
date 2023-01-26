@@ -10,7 +10,7 @@
  */
 int main(void)
 {
-    list_t *head;
+	list_t *head;
     list_t *new;
     list_t hello = {"World", 5, NULL};
     size_t n;
@@ -26,15 +26,9 @@ int main(void)
     new->len = 5;
     new->next = head;
     head = new;
-    n = print_list(head);
+    n = list_len(head);
     printf("-> %lu elements\n", n);
-
-    printf("\n");
     free(new->str);
-    new->str = NULL;
-    n = print_list(head);
-    printf("-> %lu elements\n", n);
-
     free(new);
-    return (0);
+    return (0);	
 }
