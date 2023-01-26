@@ -41,5 +41,5 @@ list_t *add_node_end(list_t **head, const char *str)
 		temp->next = new_node;
 		new_node->next = NULL;
 	}
-	return (temp);
+	return (new_node);
 }
