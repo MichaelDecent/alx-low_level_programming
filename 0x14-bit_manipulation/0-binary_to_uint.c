@@ -3,8 +3,11 @@
 /**
  * binary_to_uint - a function that converts a binary
  * number to an unsigned int
+ * @b: a string of binary number to be converted
  *
+ * Return: The converted number
  */
+
 unsigned int binary_to_uint(const char *b)
 {
 	const char *s;
