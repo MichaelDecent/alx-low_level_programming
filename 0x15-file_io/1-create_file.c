@@ -10,9 +10,14 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	int chk;
+	int len;
 
 	if (filename == NULL)
 		return (-1);
+
+	len = 0;
+	while (text_content[len])
+		len++;
 
 	fd = open(filename, O_CREAT | O_EXCL | O_WRONLY, 0600);
 	if (fd < 0)
@@ -26,7 +31,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	chk = write(fd, text_content, sizeof(text_content));
+	chk = write(fd, text_content, len);
 	if (chk == -1)
 	{
 		return (-1);
