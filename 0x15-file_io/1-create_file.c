@@ -2,13 +2,14 @@
 /**
  * create_file - a function that creates a file
  * @filename: name of file
- * @text_content
+ * @text_content: a NULL terminated string to write to the file
  *
  * Return:  1 on success, -1 on failure
  */
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
+
 	if (filename == NULL)
 		return (-1);
 
