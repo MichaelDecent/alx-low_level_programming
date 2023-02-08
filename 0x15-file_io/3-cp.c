@@ -56,11 +56,11 @@ void print_errmsg(int exitInt, int fd, char *filename1, char *filename2)
 	switch (exitInt)
 	{
 		case 97:
-			dprintf(STDERR_FILENO, "Usage: %s %s\n", filename1, filename2);
+			dprintf(STDERR_FILENO, "Usage: cp %s %s\n", filename1, filename2);
 			exit(97);
 			break;
 		case 98:
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename2);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename1);
 			exit(98);
 			break;
 		case 99:
