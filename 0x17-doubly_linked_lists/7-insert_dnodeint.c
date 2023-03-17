@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - inserts a new node at
  * a given position
@@ -14,13 +13,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i = 0, len = 0;
 	dlistint_t *temp, *new, *temp2;
-	
-	temp = *h;
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		len++;
-	}
+
+	len = list_len(h);
 	if (idx > len)
 		return (NULL);
 
@@ -34,30 +28,39 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new = add_dnodeint_end(h, n);
 		return (new);
 	}
-	else
-	{	
-		new = malloc(sizeof(dlistint_t));
-		if (new == NULL)
-			return (NULL);
-
-		new->n = n;
-		new->next = NULL;
-		new->prev = NULL;
-	
-		temp = *h;
-		while (i < idx)
-		{
-			if (temp == NULL)
-				return (NULL);
-			temp2 = temp;
-			temp = temp->next;
-			i++;
-		}
-		temp2->next = new;
-		new->prev = temp;
-		temp->prev = new;
-		new->next = temp;
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	temp = *h;
+	while (i < idx)
+	{
+		temp2 = temp;
+		temp = temp->next;
+		i++;
 	}
-
+	temp2->next = new;
+	new->prev = temp;
+	temp->prev = new;
+	new->next = temp;
 	return (new);
+}
+/**
+ * list_len - A function that the length of the list
+ * @head: a pointer to the head node
+ *
+ * Return: length of the list
+ */
+int list_len(dlistint_t **head)
+{
+	int len = 0;
+	dlistint_t *temp;
+
+	temp = *head;
+	while (temp != NULL)
+	{
+		temp = (temp)->next;
+		len++;
+	}
+	return (len);
 }
