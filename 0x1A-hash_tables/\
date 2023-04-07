@@ -1,0 +1,45 @@
+#include "hash_tables.h"
+/**
+ * hash_table_set - a function that adds an element to the hash table
+ * @ht: the hash table you want to add or update the key/value to
+ * @key: is the key
+ * @value: the value associated with the key.
+ *
+ * Returns: 1 if it succeeded, 0 otherwise
+ */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int idx;
+	hash_node_t *new_hash;
+	char *value_dup, *key_dup;
+
+	if (key == NULL || value == NULL)
+		return (0);
+	value_dup = strdup(value);
+	key_dup = strdup(key);
+
+	idx = key_index((unsigned char *)key, ht->size);
+	if (ht->array[idx] != NULL)
+	{
+		ht->array[idx]->key = key_dup;
+		ht->array[idx]->value = value_dup;
+		return (1);
+	}
+
+	new_hash = malloc(sizeof(hash_node_t));
+	if (new_hash == NULL)
+		return (0);
+	new_hash->key = key_dup;
+	new_hash->value = value_dup;
+	new_hash->next = NULL;
+
+	if (ht->array[idx]->next == NULL)
+	{
+		ht->array[idx] = new_hash;
+		new_hash->next = NULL;
+		return (1);
+	}
+	new_hash->next = ht->array[idx]->next;
+	ht->array[idx] = new_hash;
+	return (1);
+}
