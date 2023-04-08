@@ -9,7 +9,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int idx;
+	unsigned long int idx, i;
 	hash_node_t *new_hash;
 	char *value_dup, *key_dup;
 
@@ -25,7 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	idx = key_index((unsigned char *)key, ht->size);
-	while (ht->array[idx])
+	for (i = idx; ht->array[idx]; i++)
 	{
 		if (strcmp(ht->array[idx]->key, key) == 0)
 		{
@@ -33,7 +33,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			ht->array[idx]->value = value_dup;
 			return (1);
 		}
-		idx++;
 	}
 	new_hash = malloc(sizeof(hash_node_t));
 	if (new_hash == NULL)
