@@ -25,12 +25,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	idx = key_index((unsigned char *)key, ht->size);
-	for (i = idx; ht->array[idx]; i++)
+	for (i = idx; ht->array[i]; i++)
 	{
-		if (strcmp(ht->array[idx]->key, key) == 0)
+		if (strcmp(ht->array[i]->key, key) == 0)
 		{
-			free(ht->array[idx]->value);
-			ht->array[idx]->value = value_dup;
+			free(ht->array[i]->value);
+			ht->array[i]->value = value_dup;
 			return (1);
 		}
 	}
