@@ -40,7 +40,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	new_hash = malloc(sizeof(hash_node_t));
 	if (new_hash == NULL)
+	{
+		free(value_dup);
+		free(key_dup);
 		return (0);
+	}
 	new_hash->key = key_dup;
 	new_hash->value = value_dup;
 	new_hash->next = NULL;
