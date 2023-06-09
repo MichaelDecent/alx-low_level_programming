@@ -32,29 +32,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index]->value = value_copy;
 		return(0);
 	}
+
+	if (strcmp(ht->array[index]->key, key) == 0)
+	{
+		strcpy(ht->array[index]->value, value);
+		return(1);
+	}
 	else
 	{
-		if (strcmp(ht->array[index]->key, key) == 0)
+		new = malloc(sizeof(hash_node_t));
+		if (new == NULL)
 		{
-			strcpy(ht->array[index]->value, value);
-			return(1);
+			free(value_copy);
+			free(key_copy);
+			return (1);
 		}
-		else
-		{
-			new = malloc(sizeof(hash_node_t));
-			if (new == NULL)
-			{
-				free(value_copy);
-				free(key_copy);
-				return (1);
-			}
-			new->next = ht->array[index];
-			ht->array[index] = new;
-			return(0);
-		}
-
+		new->key = key_copy;
+		new->value = value_copy;
+		new->next = ht->array[index];
+		ht->array[index] = new;
+		return(0);
 	}
-
-
 }
 
