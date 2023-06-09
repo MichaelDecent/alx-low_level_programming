@@ -1,30 +1,4 @@
 #include "hash_tables.h"
-/**
- * create_data - a fuction that create the data to be inserted
- * @key: the key
- * @value: value
- *
- * Return:  a pointer to the data
- */
-hash_node_t *create_data(char *key, char *value)
-{
-	hash_node_t *data;
-
-	data = malloc(sizeof(hash_node_t));
-	if (data == NULL)
-		return (NULL);
-	data->key = malloc(strlen(key) + 1);
-	if (data->key)
-		return (NULL);
-	data->value = malloc(strlen(value) + 1);
-	if (data->value == NULL)
-		return (NULL);
-	strcpy(data->key, key);
-	strcpy(data->value, value);
-
-	return (data);
-}
-
 
 /**
  * hash_table_set - a function that adds an element to the hash table
@@ -37,13 +11,22 @@ hash_node_t *create_data(char *key, char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned int index;
-	
-	hash_node_t *data = create_data((char *)key, (char *)value);
+	hash_node_t *new;
+	char *key_copy, *value_copy;
+
+	value_copy = strdup(value);
+	if (value_copy == NULL)
+		return (0);
+	key_copy = strdup(key);
+        if (key_copy == NULL)
+                return (0);
+
 	index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[index] == NULL)
 	{
-		ht->array[index] = data;
+		ht->array[index]->key = key_copy;
+		ht->array[index]->value = value_copy;
 		return(0);
 	}
 	else
@@ -55,9 +38,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			data->next = ht->array[index]->next;
-			ht->array[index]->next = data; 
-		}	return(0);
+			new = malloc(sizeof(hash_node_t));
+			if (new == NULL)
+			{
+				free(value_copy);
+				free(key_copy);
+				return (1);
+			}
+			new->next = ht->array[index];
+			ht->array[index] = new;
+			return(0);
+		}
 
 	}
 
