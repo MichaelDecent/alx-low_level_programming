@@ -1,0 +1,29 @@
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# If there's any filename that equals these rule name
+# treat these rules as actions (PHONY targets) and not file
+# and execute them
+.PHONY: all clean oclean fclean re
+
+# Builds the executable
+all: $(OBJ) m.h
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+# Deletes all temporary files (files ending with tilde ~) along with the executable
+clean:
+	$(RM) $(NAME) *~
+
+# deletes the object files
+oclean:
+	$(RM) $(OBJ)
+
+# Deletes all temporary files (files ending with tilde ~) the executable and the object files
+fclean: clean oclean
+
+#forces recompilation of all source files
+re: oclean all
