@@ -10,7 +10,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 .PHONY: all clean oclean fclean re
 
 # Builds the executable
-all: $(OBJ) m.h
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Deletes all temporary files (files ending with tilde ~) along with the executable
