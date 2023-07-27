@@ -12,7 +12,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # Builds the executable
 all: $(OBJ) m.h
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 # Deletes all temporary files (files ending with tilde ~) along with the executable
 clean:
@@ -26,4 +26,4 @@ oclean:
 fclean: clean oclean
 
 #forces recompilation of all source files
-re: oclean all
+re: fclean all
