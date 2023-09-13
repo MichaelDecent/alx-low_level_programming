@@ -18,7 +18,7 @@ void print_array(int *array, int beg, int end)
 }
 
 /**
-* binary_search - hat searches for a value in an array of
+* binary_search - searches for a value in an array of
 * integers using the Binary search algorithm
 * @array: a pointer to the first value of the array to search in
 * @size: the number of elements in array
